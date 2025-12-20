@@ -1,24 +1,19 @@
-pangram = input("Enter a phrase ").lower()
-pangram_list = []
-new_list=[]
-previous_char = None
-counter = 0
-for i in pangram:
-    if i.isalpha():
-        pangram_list.append(i)
-pangram_list.sort()
+def is_pangram(st):
+    letters = set()
 
-for i in pangram_list:
-    if i != previous_char:
-        new_list.append(i)
-        previous_char = i
-        counter +=1
+    for ch in st.lower():
+        if ch.isalpha():
+            letters.add(ch)
 
-if counter < 26:
-    print(False)
+    return len(letters) == 26
+
+st = input()
+is_pangram(st)
+
+if is_pangram(st):
+    print('Pangram')
 else:
-    print(True)
-
+    print("Not pangram")
 
 
 
